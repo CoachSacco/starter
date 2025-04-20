@@ -25,3 +25,21 @@ function handleSubmit() {
     }
   }
 }
+.upload-list {
+  margin-top: 30px;
+  padding: 20px;
+  background: #1c1c1c;
+  border-radius: 10px;
+  color: #eee;
+}
+
+.upload-list h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#uploadItems li {
+  padding: 6px 0;
+  border-bottom: 1px solid #444;
+  font-size: 15px;
+}
