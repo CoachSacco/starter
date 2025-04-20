@@ -26,11 +26,22 @@ function handleSubmit() {
 
     analyzeBtn.addEventListener('click', () => {
       analyzeBtn.disabled = true;
-      statusSpan.textContent = ' ⏳ Processing...';
+      statusSpan.textContent = ' ⏳ Analyzing formations';
+
       setTimeout(() => {
-        statusSpan.textContent = ' ✅ Analysis Ready';
-        analyzeBtn.style.display = 'none';
-      }, 3000);
+        statusSpan.textContent = ' ⏳ Reading tendencies';
+
+        setTimeout(() => {
+          statusSpan.textContent = ' ⏳ Generating report';
+
+          setTimeout(() => {
+            statusSpan.textContent = ' ✅ Analysis Ready by The PlayMaster';
+            analyzeBtn.style.display = 'none';
+          }, 2000);
+
+        }, 2000);
+
+      }, 2000);
     });
 
     return;
@@ -54,11 +65,22 @@ function handleSubmit() {
 
     analyzeBtn.addEventListener('click', () => {
       analyzeBtn.disabled = true;
-      statusSpan.textContent = ' ⏳ Processing...';
+      statusSpan.textContent = ' ⏳ Analyzing formations';
+
       setTimeout(() => {
-        statusSpan.textContent = ' ✅ Analysis Ready';
-        analyzeBtn.style.display = 'none';
-      }, 3000);
+        statusSpan.textContent = ' ⏳ Reading tendencies';
+
+        setTimeout(() => {
+          statusSpan.textContent = ' ⏳ Generating report';
+
+          setTimeout(() => {
+            statusSpan.textContent = ' ✅ Analysis Ready by The PlayMaster';
+            analyzeBtn.style.display = 'none';
+          }, 2000);
+
+        }, 2000);
+
+      }, 2000);
     });
 
     if (isZip) {
