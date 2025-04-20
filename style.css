@@ -4,6 +4,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 .container {
@@ -30,6 +31,11 @@ input[type="file"] {
   border-radius: 5px;
   background-color: #2a2a2a;
   color: #ffffff;
+}
+
+input[type="text"]::placeholder,
+input[type="file"]::placeholder {
+  color: #999;
 }
 
 button {
@@ -60,6 +66,7 @@ label {
   margin-top: 1rem;
   font-style: italic;
 }
+
 .upload-list {
   margin-top: 30px;
   padding: 20px;
@@ -77,7 +84,11 @@ label {
   padding: 6px 0;
   border-bottom: 1px solid #444;
   font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .analyze-btn {
   margin-left: 10px;
   background: #2a2a2a;
@@ -91,11 +102,13 @@ label {
 .analyze-btn:hover {
   background: #444;
 }
+
 .analysis-status {
   margin-left: 10px;
   font-style: italic;
   color: #a0aec0;
 }
+
 .analysis-container {
   display: flex;
   gap: 2rem;
@@ -103,7 +116,8 @@ label {
   flex-wrap: wrap;
 }
 
-.text-analysis, .visual-analysis {
+.text-analysis,
+.visual-analysis {
   flex: 1 1 45%;
   background-color: #1e1e1e;
   padding: 1.5rem;
@@ -130,12 +144,14 @@ label {
   border-collapse: collapse;
 }
 
-.tag-table th, .tag-table td {
+.tag-table th,
+.tag-table td {
   padding: 0.5rem;
   border-bottom: 1px solid #444;
   text-align: left;
   color: #eee;
 }
+
 .nav-btn {
   background-color: #2d3748;
   color: #fff;
