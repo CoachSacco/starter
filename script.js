@@ -36,10 +36,8 @@ function handleSubmit() {
 
           setTimeout(() => {
             statusSpan.textContent = ' ✅ Analysis Ready';
-statusSpan.textContent = ' ✅ Analysis Ready';
-setTimeout(() => toggleView('analysis'), 1000);
-
             analyzeBtn.style.display = 'none';
+            setTimeout(() => toggleView('analysis'), 1000);
           }, 2000);
 
         }, 2000);
@@ -79,6 +77,7 @@ setTimeout(() => toggleView('analysis'), 1000);
           setTimeout(() => {
             statusSpan.textContent = ' ✅ Analysis Ready by The PlayMaster';
             analyzeBtn.style.display = 'none';
+            setTimeout(() => toggleView('analysis'), 1000);
           }, 2000);
 
         }, 2000);
@@ -93,6 +92,7 @@ setTimeout(() => toggleView('analysis'), 1000);
     }
   }
 }
+
 function toggleView(view) {
   const uploadView = document.getElementById('uploadView');
   const analysisView = document.getElementById('analysisView');
