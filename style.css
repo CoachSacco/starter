@@ -78,3 +78,16 @@ label {
   border-bottom: 1px solid #444;
   font-size: 15px;
 }
+.analyze-btn {
+  margin-left: 10px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  padding: 4px 8px;
+  color: #eee;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.analyze-btn:hover {
+  background: #444;
+}
