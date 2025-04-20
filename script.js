@@ -11,7 +11,17 @@ function handleSubmit() {
 
   if (link) {
     status.textContent = `Link received (${label || 'No label'}). Ready for analysis.`;
-  } else if (file) {
-    status.textContent = `Clip "${file.name}" uploaded (${label || 'No label'}). Ready for analysis.`;
+    return;
+  }
+
+  if (file) {
+    const fileName = file.name.toLowerCase();
+    const isZip = fileName.endsWith(".zip");
+
+    if (isZip) {
+      status.textContent = `Zip file "${file.name}" uploaded (${label || 'No label'}). Auto-extraction and processing will be available soon.`;
+    } else {
+      status.textContent = `Clip "${file.name}" uploaded (${label || 'No label'}). Ready for analysis.`;
+    }
   }
 }
