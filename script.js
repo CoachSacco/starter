@@ -90,3 +90,15 @@ function handleSubmit() {
     }
   }
 }
+function toggleView(view) {
+  const uploadView = document.getElementById('uploadView');
+  const analysisView = document.getElementById('analysisView');
+
+  if (view === 'upload') {
+    uploadView.style.display = 'block';
+    analysisView.style.display = 'none';
+  } else {
+    uploadView.style.display = 'none';
+    analysisView.style.display = 'block';
+  }
+}
