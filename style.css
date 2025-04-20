@@ -96,3 +96,43 @@ label {
   font-style: italic;
   color: #a0aec0;
 }
+.analysis-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.text-analysis, .visual-analysis {
+  flex: 1 1 45%;
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.05);
+  color: #e0f7fa;
+}
+
+.chart-placeholder,
+.formation-diagram {
+  margin-top: 1rem;
+  background: #2a2a2a;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  border-radius: 8px;
+}
+
+.tag-table {
+  margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tag-table th, .tag-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #444;
+  text-align: left;
+  color: #eee;
+}
