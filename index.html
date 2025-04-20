@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PlayMasterAI Analysis Output</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #121212;
@@ -12,8 +12,16 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-  <button onclick="toggleView('upload')" class="nav-btn">Back to Upload</button>
+    }
 
+    .nav-btn {
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #4fd1c5;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     .analysis-container {
@@ -23,7 +31,8 @@
       gap: 2rem;
     }
 
-    .text-output, .visual-output {
+    .text-output,
+    .visual-output {
       flex: 1 1 45%;
       background-color: #1e1e1e;
       padding: 1.5rem;
@@ -36,7 +45,9 @@
       margin-bottom: 1rem;
     }
 
-    .chart, .formation-diagram, .tags-table {
+    .chart,
+    .formation-diagram,
+    .tags-table {
       margin-top: 1rem;
       background-color: #2a2a2a;
       padding: 1rem;
@@ -49,7 +60,8 @@
       margin-top: 1rem;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #444;
       padding: 8px;
       text-align: left;
@@ -68,56 +80,62 @@
   </style>
 </head>
 <body>
+
   <!-- Upload Section -->
-<div id="uploadView">
-  <!-- Your current form and upload list goes here -->
-</div>
-
-<!-- Analysis Output Section -->
-<div id="analysisView" style="display: none;">
-  <button onclick="toggleView('upload')" class="nav-btn">Back to Upload</button>
-  <div class="output-container">
-    <div class="text-output">
-      <h2>Analysis Notes</h2>
-      <p>Here’s where The PlayMaster AI output will go.</p>
-    </div>
-    <div class="visual-output">
-      <h2>Visual Report</h2>
-      <p>Charts, tags, and formations coming soon.</p>
-    </div>
+  <div id="uploadView" style="display: none;">
+    <button onclick="toggleView('analysis')" class="nav-btn">Go to Analysis</button>
+    <!-- Your existing upload UI will go here -->
+    <p style="text-align: center;">[Upload Page Placeholder]</p>
   </div>
-</div>
 
-  <div class="analysis-container">
-    <div class="text-output">
-      <h2>AI Breakdown</h2>
-      <p><strong>Opponent Tendencies:</strong> Frequently uses Cover 3 on 3rd and long. Blitzes from the weak side 40% of the time.</p>
-      <p><strong>Suggested Adjustments:</strong> Use bunch formations to pull defenders out of alignment. Try flood concepts to beat zone.</p>
-      <p><strong>Player Spotlight:</strong> QB #10 has a slow dropback under pressure. LB #7 is most active on stunts.</p>
-    </div>
-
-    <div class="visual-output">
-      <h2>Visual Report</h2>
-
-      <div class="chart">
-        <h3>Play Success Rate</h3>
-        <p>[Chart Placeholder]</p>
+  <!-- Analysis Output Section -->
+  <div id="analysisView">
+    <button onclick="toggleView('upload')" class="nav-btn">Back to Upload</button>
+    <div class="analysis-container">
+      <div class="text-output">
+        <h2>AI Breakdown</h2>
+        <p><strong>Opponent Tendencies:</strong> Frequently uses Cover 3 on 3rd and long. Blitzes from the weak side 40% of the time.</p>
+        <p><strong>Suggested Adjustments:</strong> Use bunch formations to pull defenders out of alignment. Try flood concepts to beat zone.</p>
+        <p><strong>Player Spotlight:</strong> QB #10 has a slow dropback under pressure. LB #7 is most active on stunts.</p>
       </div>
 
-      <div class="formation-diagram">
-        <h3>Common Formations</h3>
-        <p>[Formation Diagram Placeholder]</p>
-      </div>
+      <div class="visual-output">
+        <h2>Visual Report</h2>
 
-      <div class="tags-table">
-        <h3>Defensive Tags</h3>
-        <table>
-          <tr><th>Play</th><th>Coverage</th><th>Blitz</th></tr>
-          <tr><td>3rd & 8</td><td>Cover 3</td><td>Weak Side</td></tr>
-          <tr><td>2nd & 5</td><td>Man</td><td>None</td></tr>
-        </table>
+        <div class="chart">
+          <h3>Play Success Rate</h3>
+          <p>[Chart Placeholder]</p>
+        </div>
+
+        <div class="formation-diagram">
+          <h3>Common Formations</h3>
+          <p>[Formation Diagram Placeholder]</p>
+        </div>
+
+        <div class="tags-table">
+          <h3>Defensive Tags</h3>
+          <table>
+            <tr><th>Play</th><th>Coverage</th><th>Blitz</th></tr>
+            <tr><td>3rd & 8</td><td>Cover 3</td><td>Weak Side</td></tr>
+            <tr><td>2nd & 5</td><td>Man</td><td>None</td></tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function toggleView(view) {
+      const upload = document.getElementById('uploadView');
+      const analysis = document.getElementById('analysisView');
+      if (view === 'upload') {
+        upload.style.display = 'block';
+        analysis.style.display = 'none';
+      } else {
+        upload.style.display = 'none';
+        analysis.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
