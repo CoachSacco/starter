@@ -136,3 +136,16 @@ label {
   text-align: left;
   color: #eee;
 }
+.nav-btn {
+  background-color: #2d3748;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background-color: #4a5568;
+}
