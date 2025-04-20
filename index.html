@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayMasterAI</title>
+  <title>PlayMasterAI – Upload Film</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1 class="logo">PlayMasterAI</h1>
-      <p class="tagline">Your AI-powered assistant for smarter coaching</p>
-    </header>
-    <main>
-      <button class="cta">Upload Film</button>
-      <p class="description">Break down film. Scout opponents. Build better athletes.</p>
-    </main>
+    <h1>PlayMasterAI</h1>
+    <p>Upload a film clip or paste a video link to get started</p>
+
+    <label for="videoLink">Paste Video Link</label>
+    <input type="text" id="videoLink" placeholder="Google Drive, Hudl, Dropbox, etc." />
+
+    <label for="fileUpload">Or Upload a Video File</label>
+    <input type="file" id="fileUpload" accept="video/*" />
+
+    <label for="clipLabel">Add a Label (optional)</label>
+    <input type="text" id="clipLabel" placeholder="e.g., Opponent – 2nd Qtr" />
+
+    <button onclick="handleSubmit()">Submit</button>
+    <p id="status"></p>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
