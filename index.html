@@ -68,6 +68,26 @@
   </style>
 </head>
 <body>
+  <!-- Upload Section -->
+<div id="uploadView">
+  <!-- Your current form and upload list goes here -->
+</div>
+
+<!-- Analysis Output Section -->
+<div id="analysisView" style="display: none;">
+  <button onclick="toggleView('upload')" class="nav-btn">Back to Upload</button>
+  <div class="output-container">
+    <div class="text-output">
+      <h2>Analysis Notes</h2>
+      <p>Here’s where The PlayMaster AI output will go.</p>
+    </div>
+    <div class="visual-output">
+      <h2>Visual Report</h2>
+      <p>Charts, tags, and formations coming soon.</p>
+    </div>
+  </div>
+</div>
+
   <div class="analysis-container">
     <div class="text-output">
       <h2>AI Breakdown</h2>
