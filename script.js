@@ -35,7 +35,10 @@ function handleSubmit() {
           statusSpan.textContent = ' ⏳ Generating report';
 
           setTimeout(() => {
-            statusSpan.textContent = ' ✅ Analysis Ready by The PlayMaster';
+            statusSpan.textContent = ' ✅ Analysis Ready';
+statusSpan.textContent = ' ✅ Analysis Ready';
+setTimeout(() => toggleView('analysis'), 1000);
+
             analyzeBtn.style.display = 'none';
           }, 2000);
 
