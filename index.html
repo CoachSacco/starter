@@ -1,36 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayMasterAI – Upload Film</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayMasterAI Analysis Output</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0f7fa;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .analysis-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .text-output, .visual-output {
+      flex: 1 1 45%;
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    h2 {
+      color: #4fd1c5;
+      margin-bottom: 1rem;
+    }
+
+    .chart, .formation-diagram, .tags-table {
+      margin-top: 1rem;
+      background-color: #2a2a2a;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: #4fd1c5;
+    }
+
+    @media (max-width: 768px) {
+      .analysis-container {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>PlayMasterAI</h1>
-    <p>Upload a film clip or paste a video link to get started</p>
+  <div class="analysis-container">
+    <div class="text-output">
+      <h2>AI Breakdown</h2>
+      <p><strong>Opponent Tendencies:</strong> Frequently uses Cover 3 on 3rd and long. Blitzes from the weak side 40% of the time.</p>
+      <p><strong>Suggested Adjustments:</strong> Use bunch formations to pull defenders out of alignment. Try flood concepts to beat zone.</p>
+      <p><strong>Player Spotlight:</strong> QB #10 has a slow dropback under pressure. LB #7 is most active on stunts.</p>
+    </div>
 
-    <label for="videoLink">Paste Video Link</label>
-    <input type="text" id="videoLink" placeholder="Google Drive, Hudl, Dropbox, etc." />
+    <div class="visual-output">
+      <h2>Visual Report</h2>
 
-    <label for="fileUpload">Or Upload a Video File</label>
-    <input type="file" id="fileUpload" accept=".mp4,.mov,.avi,.zip" />
+      <div class="chart">
+        <h3>Play Success Rate</h3>
+        <p>[Chart Placeholder]</p>
+      </div>
 
+      <div class="formation-diagram">
+        <h3>Common Formations</h3>
+        <p>[Formation Diagram Placeholder]</p>
+      </div>
 
-    <label for="clipLabel">Add a Label (optional)</label>
-    <input type="text" id="clipLabel" placeholder="e.g., Opponent – 2nd Qtr" />
-
-    <button onclick="handleSubmit()">Submit</button>
-    <p id="status"></p>
+      <div class="tags-table">
+        <h3>Defensive Tags</h3>
+        <table>
+          <tr><th>Play</th><th>Coverage</th><th>Blitz</th></tr>
+          <tr><td>3rd & 8</td><td>Cover 3</td><td>Weak Side</td></tr>
+          <tr><td>2nd & 5</td><td>Man</td><td>None</td></tr>
+        </table>
+      </div>
+    </div>
   </div>
-
-  <script src="script.js"></script>
-  <div id="uploadList" class="upload-list">
-  <h3>Uploaded Items</h3>
-  <ul id="uploadItems"></ul>
-</div>
-
 </body>
 </html>
-
