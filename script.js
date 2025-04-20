@@ -28,8 +28,28 @@ function handleSubmit() {
       status.textContent = `Zip file "${file.name}" uploaded (${label || 'No label'}). Auto-extraction and processing will be available soon.`;
 
       const newItem = document.createElement('li');
-      newItem.textContent = `📦 ${label || 'Zip File'}: ${file.name}`;
-      uploadItems.appendChild(newItem);
+      newItem.innerHTML = `
+  <span>${
+    link ? '🔗' : isZip ? '📦' : '🎥'
+  } ${label || (link ? 'Link' : file.name)}</span>
+  <button class="analyze-btn">Analyze</button>
+  <span class="analysis-status"></span>
+`;
+
+      const analyzeBtn = newItem.querySelector('.analyze-btn');
+const statusSpan = newItem.querySelector('.analysis-status');
+
+analyzeBtn.addEventListener('click', () => {
+  analyzeBtn.disabled = true;
+  statusSpan.textContent = ' ⏳ Processing...';
+
+  // Simulate AI processing delay
+  setTimeout(() => {
+    statusSpan.textContent = ' ✅ Analysis Ready';
+    analyzeBtn.style.display = 'none';
+  }, 3000); // 3 seconds for demo
+});
+
     } else {
       status.textContent = `Clip "${file.name}" uploaded (${label || 'No label'}). Ready for analysis.`;
 
