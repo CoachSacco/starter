@@ -105,3 +105,21 @@ function toggleView(view) {
     analysisView.style.display = 'block';
   }
 }
+function runThePlayMaster(linkOrFile, label) {
+  // Simulate GPT + visual data
+  return {
+    text: [
+      `Opponent uses Cover 2 Man on most 3rd downs.`,
+      `Blitzes from nickel on 50% of plays.`,
+      `Run game struggles vs 3-4 fronts.`
+    ],
+    visuals: {
+      successChart: "placeholder",
+      formations: ["Trips Right", "I-Form", "Gun Bunch"],
+      tags: [
+        { play: "1st & 10", coverage: "Cover 2", blitz: "Nickel Edge" },
+        { play: "3rd & 6", coverage: "Man", blitz: "None" }
+      ]
+    }
+  };
+}
