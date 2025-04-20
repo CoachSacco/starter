@@ -10,6 +10,25 @@ function handleSubmit() {
     return;
   }
 
+  function startAnalysis(analyzeBtn, statusSpan, labelOrName, linkOrFile) {
+    analyzeBtn.disabled = true;
+    statusSpan.textContent = ' ⏳ Analyzing formations';
+
+    setTimeout(() => {
+      statusSpan.textContent = ' ⏳ Reading tendencies';
+      setTimeout(() => {
+        statusSpan.textContent = ' ⏳ Generating report';
+        setTimeout(() => {
+          const results = runThePlayMaster(linkOrFile, labelOrName);
+          fillAnalysisPage(results);
+          statusSpan.textContent = ' ✅ Analysis Ready by The PlayMaster';
+          analyzeBtn.style.display = 'none';
+          setTimeout(() => toggleView('analysis'), 1000);
+        }, 2000);
+      }, 2000);
+    }, 2000);
+  }
+
   if (link) {
     status.textContent = `Link received (${label || 'No label'}). Ready for analysis.`;
 
@@ -24,26 +43,9 @@ function handleSubmit() {
     const analyzeBtn = newItem.querySelector('.analyze-btn');
     const statusSpan = newItem.querySelector('.analysis-status');
 
-    analyzeBtn.addEventListener('click', () => {
-      analyzeBtn.disabled = true;
-      statusSpan.textContent = ' ⏳ Analyzing formations';
-
-      setTimeout(() => {
-        statusSpan.textContent = ' ⏳ Reading tendencies';
-
-        setTimeout(() => {
-          statusSpan.textContent = ' ⏳ Generating report';
-
-          setTimeout(() => {
-            statusSpan.textContent = ' ✅ Analysis Ready';
-            analyzeBtn.style.display = 'none';
-            setTimeout(() => toggleView('analysis'), 1000);
-          }, 2000);
-
-        }, 2000);
-
-      }, 2000);
-    });
+    analyzeBtn.addEventListener('click', () =>
+      startAnalysis(analyzeBtn, statusSpan, label, link)
+    );
 
     return;
   }
@@ -64,26 +66,9 @@ function handleSubmit() {
     const analyzeBtn = newItem.querySelector('.analyze-btn');
     const statusSpan = newItem.querySelector('.analysis-status');
 
-    analyzeBtn.addEventListener('click', () => {
-      analyzeBtn.disabled = true;
-      statusSpan.textContent = ' ⏳ Analyzing formations';
-
-      setTimeout(() => {
-        statusSpan.textContent = ' ⏳ Reading tendencies';
-
-        setTimeout(() => {
-          statusSpan.textContent = ' ⏳ Generating report';
-
-          setTimeout(() => {
-            statusSpan.textContent = ' ✅ Analysis Ready by The PlayMaster';
-            analyzeBtn.style.display = 'none';
-            setTimeout(() => toggleView('analysis'), 1000);
-          }, 2000);
-
-        }, 2000);
-
-      }, 2000);
-    });
+    analyzeBtn.addEventListener('click', () =>
+      startAnalysis(analyzeBtn, statusSpan, label, file.name)
+    );
 
     if (isZip) {
       status.textContent = `Zip file "${file.name}" uploaded (${label || 'No label'}). Auto-extraction and processing will be available soon.`;
@@ -105,8 +90,8 @@ function toggleView(view) {
     analysisView.style.display = 'block';
   }
 }
+
 function runThePlayMaster(linkOrFile, label) {
-  // Simulate GPT + visual data
   return {
     text: [
       `Opponent uses Cover 2 Man on most 3rd downs.`,
@@ -122,4 +107,39 @@ function runThePlayMaster(linkOrFile, label) {
       ]
     }
   };
+}
+
+function fillAnalysisPage(data) {
+  // Fill text output
+  const textBox = document.querySelector('#analysisView .text-output');
+  textBox.innerHTML = `<h2>AI Breakdown</h2>`;
+  data.text.forEach(point => {
+    const p = document.createElement('p');
+    p.textContent = point;
+    textBox.appendChild(p);
+  });
+
+  // Fill visuals
+  const visualBox = document.querySelector('#analysisView .visual-output');
+  visualBox.innerHTML = `<h2>Visual Report</h2>`;
+
+  const chart = document.createElement('div');
+  chart.className = 'chart';
+  chart.innerHTML = `<h3>Play Success Rate</h3><p>[Chart Placeholder]</p>`;
+  visualBox.appendChild(chart);
+
+  const formations = document.createElement('div');
+  formations.className = 'formation-diagram';
+  formations.innerHTML = `<h3>Common Formations</h3><ul>${data.visuals.formations.map(f => `<li>${f}</li>`).join('')}</ul>`;
+  visualBox.appendChild(formations);
+
+  const table = document.createElement('div');
+  table.className = 'tags-table';
+  table.innerHTML = `<h3>Defensive Tags</h3><table>
+    <tr><th>Play</th><th>Coverage</th><th>Blitz</th></tr>
+    ${data.visuals.tags.map(row => `
+      <tr><td>${row.play}</td><td>${row.coverage}</td><td>${row.blitz}</td></tr>
+    `).join('')}
+  </table>`;
+  visualBox.appendChild(table);
 }
