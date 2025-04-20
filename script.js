@@ -39,18 +39,3 @@ function handleSubmit() {
     }
   }
 }
-
-
-  }
-
-  if (file) {
-    const fileName = file.name.toLowerCase();
-    const isZip = fileName.endsWith(".zip");
-
-    if (isZip) {
-      status.textContent = `Zip file "${file.name}" uploaded (${label || 'No label'}). Auto-extraction and processing will be available soon.`;
-    } else {
-      status.textContent = `Clip "${file.name}" uploaded (${label || 'No label'}). Ready for analysis.`;
-    }
-  }
-}
