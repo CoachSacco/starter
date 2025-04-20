@@ -91,3 +91,8 @@ label {
 .analyze-btn:hover {
   background: #444;
 }
+.analysis-status {
+  margin-left: 10px;
+  font-style: italic;
+  color: #a0aec0;
+}
